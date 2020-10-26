@@ -1,28 +1,26 @@
-## Router
+# Cloudflare Workers - General Software Engineering
 
-Selects the logic to respond to requests based on the `request` method and URL. Can be used with REST APIs or apps that require basic routing logic.
+## Version: 1.0.0
 
-[`index.js`](https://github.com/cloudflare/worker-template-router/blob/master/index.js) is the content of the Workers script.
+## [LIVE LINK](https://general-engineering.alex-whan.workers.dev/) | [JSON API CODE](https://new-json-api.whana.workers.dev/)
 
-Live Demos are hosted on `workers-tooling.cf/demos/router`:
-[Demo /bar](http://workers-tooling.cf/demos/router/bar) | [Demo /foo](http://workers-tooling.cf/demos/router/foo)
+## Overview
 
-#### Wrangler
+A basic linktree-style website utilizing Cloudflare Workers to modify static HTML. This assignment consists of two parts: a JSON API providing links data and an HTML main page serving that data via Cloudflare Workers' HTMLRewriter API (see `"Deployed Applications"` links below).
 
-You can use [wrangler](https://github.com/cloudflare/wrangler) to generate a new Cloudflare Workers project based on this template by running the following command from your terminal:
+## Author
 
-```
-wrangler generate myapp https://github.com/cloudflare/worker-template-router
-```
+-   [Alex Whan](https://github.com/alex-whan)
 
-Before publishing your code you need to edit `wrangler.toml` file and add your Cloudflare `account_id` - more information about publishing your code can be found [in the documentation](https://workers.cloudflare.com/docs/quickstart/configuring-and-publishing/).
+## Deployed Applications
 
-Once you are ready, you can publish your code by running the following command:
+-   [Deployed main site via Cloudflare Workers](https://general-engineering.alex-whan.workers.dev/)
+-   [Deployed JSON API with links data](https://new-json-api.whana.workers.dev/)
 
-```
-wrangler publish
-```
+## Using this application
 
-#### Serverless
+This application responds to two requests, as follows:
 
-To deploy using serverless add a [`serverless.yml`](https://serverless.com/framework/docs/providers/cloudflare/) file.
+-   `/`: Home route that serves the [HTML frontpage](https://general-engineering.alex-whan.workers.dev/) with dynamic link data from the JSON API. Please note that _any_ route aside from `/links` below will respond by serving this HTML page.
+
+-   `/links`: Displays the raw link data in JSON format from the [JSON API](https://new-json-api.whana.workers.dev/) response.
